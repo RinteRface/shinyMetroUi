@@ -6,7 +6,7 @@ Authors@R: c(
   person("David", "Granjon", email = "dgranjon@ymail.com", role = c("aut", "cre")),
   person("Sergey", "Pimenov", role = c("ctb", "cph"), comment = "Metro UI CSS"))
 Maintainer: David Granjon <dgranjon@ymail.com>
-Description: Create windows like shiny apps.
+Description: Create 'Windows' like shiny apps.
     Customize your web applications.
 Imports: shiny
 License: GPL-2

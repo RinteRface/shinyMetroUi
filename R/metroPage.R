@@ -2,7 +2,9 @@
 #'
 #' Build a metroUI page
 #'
-#' @param ... Any element.
+#' @param ... Any element. They are inserted in a grid. Use the shiny fluidRow function
+#' to create a row and insert metroUiCol inside. The maximum with is 12
+#' (3 columns or lenght 4, 4 columns of lenght 3, ...).
 #' @param title Page title.
 #'
 #' @examples
@@ -11,7 +13,7 @@
 #'  library(shinyMetroUi)
 #'
 #'  shiny::shinyApp(
-#'    ui = metroUiPage(),
+#'    ui = metroPage(),
 #'    server = function(input, output) {}
 #'  )
 #' }
@@ -19,7 +21,7 @@
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
-metroUiPage <- function(..., title = NULL){
+metroPage <- function(..., title = NULL){
 
   shiny::tags$html(
     # Head
@@ -37,7 +39,7 @@ metroUiPage <- function(..., title = NULL){
     ),
     # Body
     shiny::tags$body(
-      ...,
+      metroContainer(shiny::tags$div(class = "grid", ...)),
       shiny::includeScript(system.file("js/metro.min.js", package = "shinyMetroUi"))
     )
   )
