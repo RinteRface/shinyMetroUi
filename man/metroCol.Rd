@@ -4,7 +4,7 @@
 \alias{metroCol}
 \title{Create a Metro 4 column cell}
 \usage{
-metroCol(..., width, offset = NULL)
+metroCol(..., width = NULL, offset = NULL)
 }
 \arguments{
 \item{...}{Any UI element.}

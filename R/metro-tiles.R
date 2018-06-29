@@ -3,6 +3,9 @@
 #' Build a Metro tile
 #'
 #' @param ... Any UI element.
+#' @param title Tile title.
+#' @param icon Tile icon.
+#' @param url Tile external link.
 #' @param size Tile size. Choose among small, medium, wide or large.
 #' @param color Tile color.
 #' @param selected Whether the tile starts selected or not. FALSE by default.
@@ -19,7 +22,7 @@
 #'
 #'  shiny::shinyApp(
 #'    ui = metroPage(
-#'     metroTile(size = "small", color = "red"),
+#'     metroTile(size = "small", color = "red", title = "My tile", icon = "apps"),
 #'     metroTile(size = "small", color = "green"),
 #'     metroTile(size = "small", color = "blue"),
 #'     metroTile(size = "small", color = "orange")
@@ -31,7 +34,8 @@
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
-metroTile <- function(..., size = c("small", "medium", "wide", "large"),
+metroTile <- function(..., title = NULL, icon  = NULL, url = NULL,
+                      size = c("small", "medium", "wide", "large"),
                       color = NULL, selected = FALSE, cover = NULL,
                       col_position = NULL, row_position = NULL){
 
@@ -42,14 +46,26 @@ metroTile <- function(..., size = c("small", "medium", "wide", "large"),
   if (!is.null(row_position)) tileClass <- paste0(tileClass, " row-", row_position)
   if (!is.null(color)) tileClass <- paste0(tileClass, " bg-", color)
 
-
-  shiny::tags$div(
+  tileProps <- list(
     class = tileClass,
     `data-role` = "tile",
     `data-size` = size,
     if (!is.null(cover)) `data-cover` = cover,
-    ...
+    ...,
+    if (!is.null(icon)) shiny::tags$span(class = paste0("icon mif-", icon)),
+    if (!is.null(title)) shiny::tags$span(class = "branding-bar", title)
   )
+
+  outerTag <- if (!is.null(url)) {
+    shiny::tags$a
+  } else {
+    shiny::tags$div
+  }
+
+  tileTag <- do.call(outerTag, tileProps)
+  if (!is.null(url)) tileTag <- shiny::tagAppendAttributes(tileTag, href = url)
+  tileTag
+
 }
 
 
@@ -82,8 +98,12 @@ metroTile <- function(..., size = c("small", "medium", "wide", "large"),
 #'     metroTilesGrid(
 #'      group = TRUE,
 #'      size = 2,
-#'      metroTile(size = "small", color = "red"),
-#'      metroTile(size = "small", color = "green"),
+#'      metroTile(
+#'       size = "small",
+#'       color = "indigo",
+#'       icon = "github",
+#'       url = "https://github.com/olton/Metro-UI-CSS"),
+#'      metroTile(size = "small", color = "green", icon = "envelop"),
 #'      metroTile(size = "small", color = "blue", col_position = 1, row_position = 2),
 #'      metroTile(size = "small", color = "orange", col_position = 2, row_position = 2),
 #'      metroTile(

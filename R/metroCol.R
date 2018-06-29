@@ -26,10 +26,9 @@
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
-metroCol <- function(..., width, offset = NULL){
-  colClass <- paste0("cell-", width)
+metroCol <- function(..., width = NULL, offset = NULL){
+  colClass <- if (!is.null(width)) paste0("cell-", width) else "cell"
   if (!is.null(offset)) colClass <- paste0(colClass, " offset-", offset)
 
   shiny::tags$div(class = colClass, ...)
 }
-

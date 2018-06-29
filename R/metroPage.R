@@ -35,7 +35,8 @@ metroPage <- function(..., title = NULL){
       shiny::tags$title(title),
 
       # CSS
-      shiny::includeCSS(system.file("css/metro-all.min.css", package = "shinyMetroUi"))
+      shiny::includeCSS(system.file("css/metro-all.min.css", package = "shinyMetroUi")),
+      shiny::tags$link(rel = "stylesheet", href = "https://cdn.metroui.org.ua/v4/css/metro-icons.min.css")
     ),
     # Body
     shiny::tags$body(

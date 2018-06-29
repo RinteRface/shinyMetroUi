@@ -37,8 +37,12 @@ if(interactive()){
     metroTilesGrid(
      group = TRUE,
      size = 2,
-     metroTile(size = "small", color = "red"),
-     metroTile(size = "small", color = "green"),
+     metroTile(
+      size = "small",
+      color = "indigo",
+      icon = "github",
+      url = "https://github.com/olton/Metro-UI-CSS"),
+     metroTile(size = "small", color = "green", icon = "envelop"),
      metroTile(size = "small", color = "blue", col_position = 1, row_position = 2),
      metroTile(size = "small", color = "orange", col_position = 2, row_position = 2),
      metroTile(

@@ -4,12 +4,18 @@
 \alias{metroTile}
 \title{Create a Metro 4 Tile}
 \usage{
-metroTile(..., size = c("small", "medium", "wide", "large"), color = NULL,
-  selected = FALSE, cover = NULL, col_position = NULL,
-  row_position = NULL)
+metroTile(..., title = NULL, icon = NULL, url = NULL, size = c("small",
+  "medium", "wide", "large"), color = NULL, selected = FALSE,
+  cover = NULL, col_position = NULL, row_position = NULL)
 }
 \arguments{
 \item{...}{Any UI element.}
+
+\item{title}{Tile title.}
+
+\item{icon}{Tile icon.}
+
+\item{url}{Tile external link.}
 
 \item{size}{Tile size. Choose among small, medium, wide or large.}
 
@@ -35,7 +41,7 @@ if(interactive()){
 
  shiny::shinyApp(
    ui = metroPage(
-    metroTile(size = "small", color = "red"),
+    metroTile(size = "small", color = "red", title = "My tile", icon = "apps"),
     metroTile(size = "small", color = "green"),
     metroTile(size = "small", color = "blue"),
     metroTile(size = "small", color = "orange")

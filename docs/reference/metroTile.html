@@ -111,9 +111,9 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>metroTile</span>(<span class='no'>...</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"small"</span>, <span class='st'>"medium"</span>, <span class='st'>"wide"</span>, <span class='st'>"large"</span>), <span class='kw'>color</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>selected</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>cover</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>col_position</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>row_position</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>metroTile</span>(<span class='no'>...</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>icon</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>url</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"small"</span>,
+  <span class='st'>"medium"</span>, <span class='st'>"wide"</span>, <span class='st'>"large"</span>), <span class='kw'>color</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>selected</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>cover</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>col_position</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>row_position</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -121,6 +121,18 @@
     <tr>
       <th>...</th>
       <td><p>Any UI element.</p></td>
+    </tr>
+    <tr>
+      <th>title</th>
+      <td><p>Tile title.</p></td>
+    </tr>
+    <tr>
+      <th>icon</th>
+      <td><p>Tile icon.</p></td>
+    </tr>
+    <tr>
+      <th>url</th>
+      <td><p>Tile external link.</p></td>
     </tr>
     <tr>
       <th>size</th>
@@ -158,7 +170,7 @@ of the current tile.</p></td>
 
  <span class='kw pkg'>shiny</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/shiny/topics/shinyApp'>shinyApp</a></span>(
    <span class='kw'>ui</span> <span class='kw'>=</span> <span class='fu'><a href='metroPage.html'>metroPage</a></span>(
-    <span class='fu'>metroTile</span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='st'>"small"</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"red"</span>),
+    <span class='fu'>metroTile</span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='st'>"small"</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"red"</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"My tile"</span>, <span class='kw'>icon</span> <span class='kw'>=</span> <span class='st'>"apps"</span>),
     <span class='fu'>metroTile</span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='st'>"small"</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"green"</span>),
     <span class='fu'>metroTile</span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='st'>"small"</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"blue"</span>),
     <span class='fu'>metroTile</span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='st'>"small"</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"orange"</span>)

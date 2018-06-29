@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create a Metro 4 column cell — metroCol • shinyMetroUi</title>
+<title>Create a Metro 4 charms — metroCharms • shinyMetroUi</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Create a Metro 4 column cell — metroCol" />
+<meta property="og:title" content="Create a Metro 4 charms — metroCharms" />
 
-<meta property="og:description" content="Build a Metro column" />
+<meta property="og:description" content="Build a Metro charms" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -100,18 +100,19 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Create a Metro 4 column cell</h1>
-    <small class="dont-index">Source: <a href='https://github.com/RinteRface/shinyMetroUi/blob/master/R/metroCol.R'><code>R/metroCol.R</code></a></small>
-    <div class="hidden name"><code>metroCol.Rd</code></div>
+    <h1>Create a Metro 4 charms</h1>
+    <small class="dont-index">Source: <a href='https://github.com/RinteRface/shinyMetroUi/blob/master/R/metroCharms.R'><code>R/metroCharms.R</code></a></small>
+    <div class="hidden name"><code>metroCharms.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Build a Metro column</p>
+    <p>Build a Metro charms</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>metroCol</span>(<span class='no'>...</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>offset</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>metroCharms</span>(<span class='no'>...</span>, <span class='no'>id</span>, <span class='kw'>position</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"right"</span>, <span class='st'>"left"</span>, <span class='st'>"top"</span>, <span class='st'>"bottom"</span>),
+  <span class='kw'>opacity</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>background</span> <span class='kw'>=</span> <span class='st'>"back"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -121,12 +122,20 @@
       <td><p>Any UI element.</p></td>
     </tr>
     <tr>
-      <th>width</th>
-      <td><p>Column width. Between 1 and 12.</p></td>
+      <th>id</th>
+      <td><p>Charms unique id. Needed by the charmsToggle.</p></td>
     </tr>
     <tr>
-      <th>offset</th>
-      <td><p>Column offset (shift). NULL by default.</p></td>
+      <th>position</th>
+      <td><p>Charms position: right, left, top or bottom.</p></td>
+    </tr>
+    <tr>
+      <th>opacity</th>
+      <td><p>Charms opacity. NULL by default. Between 0 and 1.</p></td>
+    </tr>
+    <tr>
+      <th>background</th>
+      <td><p>Charms background color. "black" by default.</p></td>
     </tr>
     </table>
     
@@ -138,10 +147,20 @@
 
  <span class='kw pkg'>shiny</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/shiny/topics/shinyApp'>shinyApp</a></span>(
    <span class='kw'>ui</span> <span class='kw'>=</span> <span class='fu'><a href='metroPage.html'>metroPage</a></span>(
-    <span class='fu'><a href='http://www.rdocumentation.org/packages/shiny/topics/fluidPage'>fluidRow</a></span>(
-     <span class='fu'>metroCol</span>(<span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='fl'>1</span>),
-     <span class='fu'>metroCol</span>(<span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='fl'>2</span>),
-     <span class='fu'>metroCol</span>(<span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='fl'>3</span>)
+    <span class='fu'><a href='http://www.rdocumentation.org/packages/shiny/topics/builder'>br</a></span>(), <span class='fu'><a href='http://www.rdocumentation.org/packages/shiny/topics/builder'>br</a></span>(), <span class='fu'><a href='http://www.rdocumentation.org/packages/shiny/topics/builder'>br</a></span>(), <span class='fu'><a href='http://www.rdocumentation.org/packages/shiny/topics/builder'>br</a></span>(),
+    <span class='fu'><a href='charmsToggle.html'>charmsToggle</a></span>(<span class='kw'>id</span> <span class='kw'>=</span> <span class='st'>"mycharm"</span>, <span class='st'>"Toggle charms"</span>),
+    <span class='fu'>metroCharms</span>(
+     <span class='kw'>id</span> <span class='kw'>=</span> <span class='st'>"mycharm"</span>,
+     <span class='kw'>background</span> <span class='kw'>=</span> <span class='st'>"dark"</span>,
+     <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"top"</span>,
+     <span class='kw'>opacity</span> <span class='kw'>=</span> <span class='st'>"0.5"</span>,
+     <span class='fu'><a href='http://www.rdocumentation.org/packages/shiny/topics/sliderInput'>sliderInput</a></span>(
+      <span class='st'>"obs"</span>,
+      <span class='st'>"Number of observations:"</span>,
+      <span class='kw'>min</span> <span class='kw'>=</span> <span class='fl'>0</span>,
+      <span class='kw'>max</span> <span class='kw'>=</span> <span class='fl'>1000</span>,
+      <span class='kw'>value</span> <span class='kw'>=</span> <span class='fl'>500</span>
+     )
     )
    ),
    <span class='kw'>server</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>) {}
