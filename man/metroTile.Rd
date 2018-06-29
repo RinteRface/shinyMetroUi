@@ -42,7 +42,7 @@ if(interactive()){
  shiny::shinyApp(
    ui = metroPage(
     metroTile(size = "small", color = "red", title = "My tile", icon = "apps"),
-    metroTile(size = "small", color = "green"),
+    metroTile(size = "small", color = "green", metroBadge(1, color = "yellow", position = "inline")),
     metroTile(size = "small", color = "blue"),
     metroTile(size = "small", color = "orange")
    ),

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create a Metro 4 page — metroPage • shinyMetroUi</title>
+<title>Create a Metro 4 badge — metroBadge • shinyMetroUi</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Create a Metro 4 page — metroPage" />
+<meta property="og:title" content="Create a Metro 4 badge — metroBadge" />
 
-<meta property="og:description" content="Build a metroUI page" />
+<meta property="og:description" content="Build a Metro badge" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -100,35 +100,37 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Create a Metro 4 page</h1>
-    <small class="dont-index">Source: <a href='https://github.com/RinteRface/shinyMetroUi/blob/master/R/metroPage.R'><code>R/metroPage.R</code></a></small>
-    <div class="hidden name"><code>metroPage.Rd</code></div>
+    <h1>Create a Metro 4 badge</h1>
+    <small class="dont-index">Source: <a href='https://github.com/RinteRface/shinyMetroUi/blob/master/R/metroBadge.R'><code>R/metroBadge.R</code></a></small>
+    <div class="hidden name"><code>metroBadge.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Build a metroUI page</p>
+    <p>Build a Metro badge</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>metroPage</span>(<span class='no'>...</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>allow_loading</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>metroBadge</span>(<span class='no'>...</span>, <span class='kw'>position</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>text_color</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>...</th>
-      <td><p>Any element. They are inserted in a grid. Use the shiny fluidRow function
-to create a row and insert metroUiCol inside. The maximum with is 12
-(3 columns or lenght 4, 4 columns of lenght 3, ...).</p></td>
+      <td><p>Badge text.</p></td>
     </tr>
     <tr>
-      <th>title</th>
-      <td><p>Page title.</p></td>
+      <th>position</th>
+      <td><p>Badge position: inside, inline or NULL</p></td>
     </tr>
     <tr>
-      <th>allow_loading</th>
-      <td><p>Whether to allow loading before display the app content. FALSE by default.</p></td>
+      <th>text_color</th>
+      <td><p>Badge text color. Black by default.</p></td>
+    </tr>
+    <tr>
+      <th>color</th>
+      <td><p>Badge background color. No background by default.</p></td>
     </tr>
     </table>
     
@@ -139,7 +141,11 @@ to create a row and insert metroUiCol inside. The maximum with is 12
  <span class='fu'>library</span>(<span class='no'>shinyMetroUi</span>)
 
  <span class='kw pkg'>shiny</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/shiny/topics/shinyApp'>shinyApp</a></span>(
-   <span class='kw'>ui</span> <span class='kw'>=</span> <span class='fu'>metroPage</span>(),
+   <span class='kw'>ui</span> <span class='kw'>=</span> <span class='fu'><a href='metroPage.html'>metroPage</a></span>(
+     <span class='fu'><a href='http://www.rdocumentation.org/packages/shiny/topics/actionButton'>actionButton</a></span>(<span class='kw'>inputId</span> <span class='kw'>=</span> <span class='st'>"a"</span>, <span class='kw'>label</span> <span class='kw'>=</span> <span class='fu'>metroBadge</span>(<span class='fl'>4</span>)),
+     <span class='fu'><a href='http://www.rdocumentation.org/packages/shiny/topics/actionButton'>actionButton</a></span>(<span class='kw'>inputId</span> <span class='kw'>=</span> <span class='st'>"b"</span>, <span class='kw'>label</span> <span class='kw'>=</span> <span class='fu'>metroBadge</span>(<span class='fl'>4</span>, <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"inline"</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"black"</span>)),
+     <span class='fu'><a href='http://www.rdocumentation.org/packages/shiny/topics/actionButton'>actionButton</a></span>(<span class='kw'>inputId</span> <span class='kw'>=</span> <span class='st'>"c"</span>, <span class='kw'>label</span> <span class='kw'>=</span> <span class='fu'>metroBadge</span>(<span class='fl'>4</span>, <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"inside"</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"red"</span>, <span class='kw'>text_color</span> <span class='kw'>=</span> <span class='st'>"white"</span>))
+   ),
    <span class='kw'>server</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>) {}
  )
 }</div></pre>

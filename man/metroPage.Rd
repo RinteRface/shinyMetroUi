@@ -4,7 +4,7 @@
 \alias{metroPage}
 \title{Create a Metro 4 page}
 \usage{
-metroPage(..., title = NULL)
+metroPage(..., title = NULL, allow_loading = FALSE)
 }
 \arguments{
 \item{...}{Any element. They are inserted in a grid. Use the shiny fluidRow function
@@ -12,6 +12,8 @@ to create a row and insert metroUiCol inside. The maximum with is 12
 (3 columns or lenght 4, 4 columns of lenght 3, ...).}
 
 \item{title}{Page title.}
+
+\item{allow_loading}{Whether to allow loading before display the app content. FALSE by default.}
 }
 \description{
 Build a metroUI page

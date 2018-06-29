@@ -23,7 +23,7 @@
 #'  shiny::shinyApp(
 #'    ui = metroPage(
 #'     metroTile(size = "small", color = "red", title = "My tile", icon = "apps"),
-#'     metroTile(size = "small", color = "green"),
+#'     metroTile(size = "small", color = "green", metroBadge(1, color = "yellow", position = "inline")),
 #'     metroTile(size = "small", color = "blue"),
 #'     metroTile(size = "small", color = "orange")
 #'    ),
@@ -63,7 +63,11 @@ metroTile <- function(..., title = NULL, icon  = NULL, url = NULL,
   }
 
   tileTag <- do.call(outerTag, tileProps)
-  if (!is.null(url)) tileTag <- shiny::tagAppendAttributes(tileTag, href = url)
+  if (!is.null(url)) tileTag <- shiny::tagAppendAttributes(
+    tileTag,
+    href = url,
+    target = "_blank"
+  )
   tileTag
 
 }
