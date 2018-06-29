@@ -16,7 +16,8 @@
 #' @param width Window width.
 #' @param height Window height.
 #'
-#' @note It is better to use only 1 window per page
+#' @note It is better to use only 2 windows per page and embed them as in the
+#' example below.
 #'
 #' @examples
 #' if(interactive()){

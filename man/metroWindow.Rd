@@ -40,7 +40,8 @@ metroWindow(..., title = NULL, icon = NULL, shadow = TRUE,
 Build a Metro window
 }
 \note{
-It is better to use only 1 window per page
+It is better to use only 2 windows per page and embed them as in the
+example below.
 }
 \examples{
 if(interactive()){
