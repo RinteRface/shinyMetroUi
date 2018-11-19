@@ -4,9 +4,10 @@
 \alias{metroTile}
 \title{Create a Metro 4 Tile}
 \usage{
-metroTile(..., title = NULL, icon = NULL, url = NULL, size = c("small",
-  "medium", "wide", "large"), color = NULL, selected = FALSE,
-  cover = NULL, col_position = NULL, row_position = NULL)
+metroTile(..., title = NULL, icon = NULL, url = NULL,
+  size = c("small", "medium", "wide", "large"), color = NULL,
+  selected = FALSE, cover = NULL, col_position = NULL,
+  row_position = NULL)
 }
 \arguments{
 \item{...}{Any UI element.}

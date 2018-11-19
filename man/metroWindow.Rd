@@ -5,9 +5,10 @@
 \title{Create a Metro 4 window}
 \usage{
 metroWindow(..., title = NULL, icon = NULL, shadow = TRUE,
-  header_color = NULL, content_color = NULL, content_text_color = NULL,
-  minimize = TRUE, closable = TRUE, draggable = FALSE,
-  resizable = FALSE, width = NULL, height = NULL)
+  header_color = NULL, content_color = NULL,
+  content_text_color = NULL, minimize = TRUE, closable = TRUE,
+  draggable = FALSE, resizable = FALSE, width = NULL,
+  height = NULL)
 }
 \arguments{
 \item{...}{Any UI element.}

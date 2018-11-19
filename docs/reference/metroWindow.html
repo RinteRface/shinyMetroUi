@@ -112,9 +112,10 @@
     </div>
 
     <pre class="usage"><span class='fu'>metroWindow</span>(<span class='no'>...</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>icon</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>shadow</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>header_color</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>content_color</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>content_text_color</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>minimize</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>closable</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>draggable</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>resizable</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>height</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+  <span class='kw'>header_color</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>content_color</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>content_text_color</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>minimize</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>closable</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>draggable</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>resizable</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>height</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -185,11 +186,11 @@ example below.</p>
  <span class='fu'>library</span>(<span class='no'>shinyMetroUi</span>)
 
  <span class='kw pkg'>shiny</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/shiny/topics/shinyApp'>shinyApp</a></span>(
-  <span class='kw'>ui</span> <span class='kw'>=</span> <span class='fu'><a href='http://www.rdocumentation.org/packages/shinyMetroUi/topics/metroPage'>metroPage</a></span>(
+  <span class='kw'>ui</span> <span class='kw'>=</span> <span class='fu'><a href='metroPage.html'>metroPage</a></span>(
     <span class='kw'>allow_loading</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
     <span class='fu'><a href='http://www.rdocumentation.org/packages/shiny/topics/fluidPage'>fluidRow</a></span>(
-      <span class='fu'><a href='http://www.rdocumentation.org/packages/shinyMetroUi/topics/metroCol'>metroCol</a></span>(
-        <span class='fu'><a href='http://www.rdocumentation.org/packages/shinyMetroUi/topics/metroWindow'>metroWindow</a></span>(
+      <span class='fu'><a href='metroCol.html'>metroCol</a></span>(
+        <span class='fu'>metroWindow</span>(
           <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Window"</span>,
           <span class='kw'>resizable</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
           <span class='kw'>width</span> <span class='kw'>=</span> <span class='st'>"100%"</span>,
@@ -197,23 +198,23 @@ example below.</p>
           <span class='kw'>content_color</span> <span class='kw'>=</span> <span class='st'>"black"</span>,
           <span class='kw'>content_text_color</span> <span class='kw'>=</span> <span class='st'>"yellow"</span>,
           <span class='co'># content</span>
-          <span class='fu'><a href='http://www.rdocumentation.org/packages/shinyMetroUi/topics/metroTilesGrid'>metroTilesGrid</a></span>(
-            <span class='fu'><a href='http://www.rdocumentation.org/packages/shinyMetroUi/topics/metroTile'>metroTile</a></span>(
+          <span class='fu'><a href='metroTilesGrid.html'>metroTilesGrid</a></span>(
+            <span class='fu'><a href='metroTile.html'>metroTile</a></span>(
               <span class='kw'>size</span> <span class='kw'>=</span> <span class='st'>"small"</span>,
               <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"indigo"</span>,
               <span class='kw'>icon</span> <span class='kw'>=</span> <span class='st'>"github"</span>,
               <span class='kw'>url</span> <span class='kw'>=</span> <span class='st'>"https://github.com/olton/Metro-UI-CSS"</span>),
-            <span class='fu'><a href='http://www.rdocumentation.org/packages/shinyMetroUi/topics/metroTile'>metroTile</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='st'>"small"</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"green"</span>, <span class='kw'>icon</span> <span class='kw'>=</span> <span class='st'>"envelop"</span>),
-            <span class='fu'><a href='http://www.rdocumentation.org/packages/shinyMetroUi/topics/metroTile'>metroTile</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='st'>"small"</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"blue"</span>, <span class='kw'>col_position</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>row_position</span> <span class='kw'>=</span> <span class='fl'>2</span>),
-            <span class='fu'><a href='http://www.rdocumentation.org/packages/shinyMetroUi/topics/metroTile'>metroTile</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='st'>"small"</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"orange"</span>, <span class='kw'>col_position</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>row_position</span> <span class='kw'>=</span> <span class='fl'>2</span>),
-            <span class='fu'><a href='http://www.rdocumentation.org/packages/shinyMetroUi/topics/metroTile'>metroTile</a></span>(
+            <span class='fu'><a href='metroTile.html'>metroTile</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='st'>"small"</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"green"</span>, <span class='kw'>icon</span> <span class='kw'>=</span> <span class='st'>"envelop"</span>),
+            <span class='fu'><a href='metroTile.html'>metroTile</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='st'>"small"</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"blue"</span>, <span class='kw'>col_position</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>row_position</span> <span class='kw'>=</span> <span class='fl'>2</span>),
+            <span class='fu'><a href='metroTile.html'>metroTile</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='st'>"small"</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"orange"</span>, <span class='kw'>col_position</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>row_position</span> <span class='kw'>=</span> <span class='fl'>2</span>),
+            <span class='fu'><a href='metroTile.html'>metroTile</a></span>(
               <span class='kw'>size</span> <span class='kw'>=</span> <span class='st'>"wide"</span>,
               <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"pink"</span>,
               <span class='fu'><a href='http://www.rdocumentation.org/packages/shiny/topics/sliderInput'>sliderInput</a></span>(<span class='st'>"obs"</span>, <span class='st'>"Number of observations:"</span>,
                           <span class='kw'>min</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>max</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='fl'>500</span>
               )
             ),
-            <span class='fu'><a href='http://www.rdocumentation.org/packages/shinyMetroUi/topics/metroTile'>metroTile</a></span>(
+            <span class='fu'><a href='metroTile.html'>metroTile</a></span>(
               <span class='kw'>size</span> <span class='kw'>=</span> <span class='st'>"large"</span>,
               <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"green"</span>,
               <span class='kw'>selected</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
@@ -222,8 +223,8 @@ example below.</p>
           )
         )
       ),
-      <span class='fu'><a href='http://www.rdocumentation.org/packages/shinyMetroUi/topics/metroCol'>metroCol</a></span>(
-        <span class='fu'><a href='http://www.rdocumentation.org/packages/shinyMetroUi/topics/metroWindow'>metroWindow</a></span>(
+      <span class='fu'><a href='metroCol.html'>metroCol</a></span>(
+        <span class='fu'>metroWindow</span>(
           <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Window"</span>,
           <span class='kw'>resizable</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
           <span class='kw'>width</span> <span class='kw'>=</span> <span class='st'>"100%"</span>,
@@ -231,11 +232,11 @@ example below.</p>
           <span class='kw'>content_color</span> <span class='kw'>=</span> <span class='st'>"black"</span>,
           <span class='kw'>content_text_color</span> <span class='kw'>=</span> <span class='st'>"yellow"</span>,
           <span class='co'># content</span>
-          <span class='fu'><a href='http://www.rdocumentation.org/packages/shinyMetroUi/topics/metroTilesGrid'>metroTilesGrid</a></span>(
-            <span class='fu'><a href='http://www.rdocumentation.org/packages/shinyMetroUi/topics/metroTile'>metroTile</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='st'>"large"</span>,<span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"brown"</span>, <span class='kw'>icon</span> <span class='kw'>=</span> <span class='st'>"windows"</span>),
-            <span class='fu'><a href='http://www.rdocumentation.org/packages/shinyMetroUi/topics/metroTile'>metroTile</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='st'>"wide"</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"crimson"</span>, <span class='kw'>icon</span> <span class='kw'>=</span> <span class='st'>"envelop"</span>),
-            <span class='fu'><a href='http://www.rdocumentation.org/packages/shinyMetroUi/topics/metroTile'>metroTile</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='st'>"small"</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"cobalt"</span>, <span class='kw'>col_position</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>row_position</span> <span class='kw'>=</span> <span class='fl'>2</span>),
-            <span class='fu'><a href='http://www.rdocumentation.org/packages/shinyMetroUi/topics/metroTile'>metroTile</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='st'>"small"</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"olive"</span>, <span class='kw'>col_position</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>row_position</span> <span class='kw'>=</span> <span class='fl'>2</span>)
+          <span class='fu'><a href='metroTilesGrid.html'>metroTilesGrid</a></span>(
+            <span class='fu'><a href='metroTile.html'>metroTile</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='st'>"large"</span>,<span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"brown"</span>, <span class='kw'>icon</span> <span class='kw'>=</span> <span class='st'>"windows"</span>),
+            <span class='fu'><a href='metroTile.html'>metroTile</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='st'>"wide"</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"crimson"</span>, <span class='kw'>icon</span> <span class='kw'>=</span> <span class='st'>"envelop"</span>),
+            <span class='fu'><a href='metroTile.html'>metroTile</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='st'>"small"</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"cobalt"</span>, <span class='kw'>col_position</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>row_position</span> <span class='kw'>=</span> <span class='fl'>2</span>),
+            <span class='fu'><a href='metroTile.html'>metroTile</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='st'>"small"</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"olive"</span>, <span class='kw'>col_position</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>row_position</span> <span class='kw'>=</span> <span class='fl'>2</span>)
           )
         )
       )
