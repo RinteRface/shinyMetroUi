@@ -25,9 +25,15 @@ if(interactive()){
 
  shiny::shinyApp(
    ui = metroPage(
-     actionButton(inputId = "a", label = metroBadge(4)),
-     actionButton(inputId = "b", label = metroBadge(4, position = "inline", color = "black")),
-     actionButton(inputId = "c", label = metroBadge(4, position = "inside", color = "red", text_color = "white"))
+     metroGrid(
+      metroRow(
+       xAlign = "center",
+       yAlign = "center",
+       metroCell(metroBadge(4, color = "red")),
+       metroCell(metroBadge(4, color = "yellow")),
+       metroCell(metroBadge(4, color = "green"))
+     )
+    )
    ),
    server = function(input, output) {}
  )

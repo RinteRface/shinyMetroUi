@@ -72,7 +72,7 @@ metroPage <- function(..., title = NULL, allow_loading = FALSE){
           `data-style` = "color"
         )
       },
-      metroContainer(shiny::tags$div(class = "grid", ...)),
+      metroContainer(fullWidth = TRUE, ...),
       shiny::includeScript(system.file("js/metro.min.js", package = "shinyMetroUi"))
     )
   )
