@@ -9,7 +9,7 @@
 #'
 #' @export
 metroContainer <- function(..., fullWidth = FALSE){
- shiny::tags$div(class = if (fullWidth) "container-fluid" else "container", ...)
+  shiny::tags$div(class = if (fullWidth) "container-fluid" else "container", ...)
 }
 
 
@@ -47,10 +47,10 @@ metroCell <- function(..., width = NULL, offset = NULL, gap = TRUE) {
   if (!is.null(offset)) cellCl <- paste0(cellCl, " offset-", offset)
   if (gap) cellCl <- paste0(cellCl, " no-gap")
 
- shiny::tags$div(
-   class = cellCl,
-   ...
- )
+  shiny::tags$div(
+    class = cellCl,
+    ...
+  )
 }
 
 
@@ -78,5 +78,45 @@ metroRow <- function(..., xAlign = c("start", "center", "end"),
   shiny::tags$div(
     class = rowCl,
     ...
+  )
+}
+
+
+
+
+#' Splitter
+#'
+#' Create a layout with panels that can be resized with splitter component
+#'
+#' @param panel1 Left panel. Wrap in \link[shiny]{tagList}. This can be a nested \link{metroSplitter}.
+#' @param panel2 Right panel. Wrap in \link[shiny]{tagList}. This can be a nested \link{metroSplitter}.
+#' @param vertical Vertical split. FALSE by default.
+#' @param minSize Minimum panel size. 100px by default.
+#' @param gutterSize Minimum gutter size (separator). 4 px by default.
+#'
+#' @export
+#'
+#' @examples
+#' if (interactive()) {
+#'  library(shiny)
+#'  library(shinyMetroUI)
+#' }
+metroSplitter <- function(panel1, panel2, vertical = FALSE, minSize = 100, gutterSize = 4) {
+
+  if (is.null(gutterSize)) gutterSize <- 4
+
+  shiny::tags$div(
+    `data-role` = "splitter",
+    `data-split-mode` = if (vertical) "vertical" else NULL,
+    `data-min-sizes` = if (!is.null(minSize)) minSize else NULL,
+    `data-gutter-size`= gutterSize,
+    class = "h-100",
+    shiny::tags$div(
+      class = "d-flex flex-justify-center flex-align-center",
+      panel1
+    ),
+    shiny::tags$div(
+      class = "d-flex flex-justify-center flex-align-center",
+      panel2)
   )
 }
