@@ -4,10 +4,20 @@
 \alias{metroPanel}
 \title{Create a Metro 4 Panel}
 \usage{
-metroPanel(..., title = NULL, width = NULL, height = NULL,
-  collapsible = FALSE, collapsed = FALSE, draggable = FALSE,
-  shadow = NULL, title_color = NULL, icon_color = NULL,
-  collapse_color = NULL, content_color = NULL)
+metroPanel(
+  ...,
+  title = NULL,
+  width = NULL,
+  height = NULL,
+  collapsible = FALSE,
+  collapsed = FALSE,
+  draggable = FALSE,
+  shadow = NULL,
+  title_color = NULL,
+  icon_color = NULL,
+  collapse_color = NULL,
+  content_color = NULL
+)
 }
 \arguments{
 \item{...}{Panel content.}

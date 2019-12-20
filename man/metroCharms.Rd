@@ -4,8 +4,13 @@
 \alias{metroCharms}
 \title{Create a Metro 4 charms}
 \usage{
-metroCharms(..., id, position = c("right", "left", "top", "bottom"),
-  opacity = NULL, background = "back")
+metroCharms(
+  ...,
+  id,
+  position = c("right", "left", "top", "bottom"),
+  opacity = NULL,
+  background = "back"
+)
 }
 \arguments{
 \item{...}{Any UI element.}

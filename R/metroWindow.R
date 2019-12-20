@@ -28,7 +28,7 @@
 #'   ui = metroPage(
 #'     allow_loading = TRUE,
 #'     fluidRow(
-#'       metroCol(
+#'       metroCell(
 #'         metroWindow(
 #'           title = "Window",
 #'           resizable = TRUE,
@@ -62,7 +62,7 @@
 #'           )
 #'         )
 #'       ),
-#'       metroCol(
+#'       metroCell(
 #'         metroWindow(
 #'           title = "Window",
 #'           resizable = TRUE,

@@ -4,12 +4,14 @@
 \alias{metroTab}
 \title{Create a Metro 4 tab}
 \usage{
-metroTab(..., tabName)
+metroTab(..., tabName, disable = FALSE)
 }
 \arguments{
 \item{...}{Tab content.}
 
 \item{tabName}{Unique tab name.}
+
+\item{disable}{Whether the tab is disabled. FALSE by default}
 }
 \description{
 Build a Metro tab

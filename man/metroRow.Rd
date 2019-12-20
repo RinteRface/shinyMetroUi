@@ -4,8 +4,11 @@
 \alias{metroRow}
 \title{Create a Metro 4 row}
 \usage{
-metroRow(..., xAlign = c("start", "center", "end"), yAlign = c("start",
-  "center", "end"))
+metroRow(
+  ...,
+  xAlign = c("start", "center", "end"),
+  yAlign = c("start", "center", "end")
+)
 }
 \arguments{
 \item{...}{Any element.}

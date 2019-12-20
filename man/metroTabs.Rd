@@ -4,12 +4,19 @@
 \alias{metroTabs}
 \title{Create a Metro 4 tab container}
 \usage{
-metroTabs(..., mode = NULL)
+metroTabs(
+  ...,
+  mode = NULL,
+  position = c("horizontal", "vertical"),
+  align = c("start", "center", "end")
+)
 }
 \arguments{
 \item{...}{Slot for \link{metroTab}.}
 
-\item{mode}{Tab mode: NULL or "pills"}
+\item{mode}{Tab mode: NULL or "pills", "text" and "group".}
+
+\item{position}{Tab position: "horizontal" by default or "vertical".}
 }
 \description{
 Build a Metro tab container
@@ -22,6 +29,8 @@ if(interactive()){
  shiny::shinyApp(
    ui = metroPage(
      metroTabs(
+      mode = "pills",
+      position = "horizontal",
       metroTab(tabName = "Tab 1", "test 1"),
       metroTab(tabName = "Tab 2", "test 2"),
       metroTab(tabName = "Tab 3", "test 3")
