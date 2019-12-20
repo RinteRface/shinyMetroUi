@@ -7,7 +7,7 @@
 metroCheck(
   inputId,
   label,
-  checked = FALSE,
+  value = FALSE,
   disabled = FALSE,
   style = c("1", "2"),
   labelSide = c("left", "right")
@@ -18,7 +18,7 @@ metroCheck(
 
 \item{label}{Checkbox label.}
 
-\item{checked}{Whether the checkbox is checked at start. Default to FALSE.}
+\item{value}{Whether the checkbox is checked at start. Default to FALSE.}
 
 \item{disabled}{Whether the checkbox is disabled at start. Default to FALSE.}
 
@@ -44,7 +44,7 @@ if (interactive()) {
     metroCheck(
      inputId = "checkbox2",
      label = "Checkbox checked",
-     checked = TRUE,
+     value = TRUE,
      labelSide = "right"
     ),
     metroCheck(

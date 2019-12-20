@@ -83,10 +83,12 @@ shiny::shinyApp(
 # checkbox
 shiny::shinyApp(
   ui = metroPage(
-    metroCheck(inputId = "checkbox1", label = "Checkbox", labelSide = "right"),
-    metroCheck(inputId = "checkbox2", label = "Checkbox checked", checked = TRUE, labelSide = "right"),
-    metroCheck(inputId = "checkbox3", label = "Checkbox disabled", disabled = TRUE, labelSide = "right"),
-    metroCheck(inputId = "checkbox4", label = "Checkbox style 2", style = "2", labelSide = "left"),
+    actionButton("go", "Update checkbox"),
+    metroCheck(inputId = "checkbox1", label = "Checkbox", labelSide = "right")
   ),
-  server = function(input, output) {}
+  server = function(input, output, session) {
+    observeEvent(input$go, {
+      updateMetroCheck(session, inputId = "checkbox1", value = TRUE)
+    })
+  }
 )
