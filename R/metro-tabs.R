@@ -5,6 +5,7 @@
 #' @param ... Slot for \link{metroTab}.
 #' @param mode Tab mode: NULL or "pills", "text" and "group".
 #' @param position Tab position: "horizontal" by default or "vertical".
+#' @param align Tab align: "start", "center" or "end".
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'

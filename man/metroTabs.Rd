@@ -17,6 +17,8 @@ metroTabs(
 \item{mode}{Tab mode: NULL or "pills", "text" and "group".}
 
 \item{position}{Tab position: "horizontal" by default or "vertical".}
+
+\item{align}{Tab align: "start", "center" or "end".}
 }
 \description{
 Build a Metro tab container
