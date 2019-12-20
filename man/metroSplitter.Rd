@@ -26,7 +26,7 @@ vertical does not work yet.
 \examples{
 if (interactive()) {
  library(shiny)
- library(shinyMetroUI)
+ library(shinyMetroUi)
 
  shiny::shinyApp(
   ui = metroPage(

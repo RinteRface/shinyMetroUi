@@ -32,7 +32,7 @@ Create a customizable checkbox with support for highly used options
 \examples{
 if (interactive()) {
  library(shiny)
- library(shinyMetroUI)
+ library(shinyMetroUi)
 
  shiny::shinyApp(
   ui = metroPage(

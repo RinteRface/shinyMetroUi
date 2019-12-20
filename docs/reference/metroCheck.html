@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create a Metro 4 tab container — metroTabs • shinyMetroUi</title>
+<title>Checkbox — metroCheck • shinyMetroUi</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="Create a Metro 4 tab container — metroTabs" />
-<meta property="og:description" content="Build a Metro tab container" />
+<meta property="og:title" content="Checkbox — metroCheck" />
+<meta property="og:description" content="Create a customizable checkbox with support for highly used options" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -108,60 +108,86 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Create a Metro 4 tab container</h1>
-    <small class="dont-index">Source: <a href='https://github.com/RinteRface/shinyMetroUi/blob/master/R/metro-tabs.R'><code>R/metro-tabs.R</code></a></small>
-    <div class="hidden name"><code>metroTabs.Rd</code></div>
+    <h1>Checkbox</h1>
+    <small class="dont-index">Source: <a href='https://github.com/RinteRface/shinyMetroUi/blob/master/R/metro-inputs.R'><code>R/metro-inputs.R</code></a></small>
+    <div class="hidden name"><code>metroCheck.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Build a Metro tab container</p>
+    <p>Create a customizable checkbox with support for highly used options</p>
     </div>
 
-    <pre class="usage"><span class='fu'>metroTabs</span>(
-  <span class='no'>...</span>,
-  <span class='kw'>mode</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>position</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"horizontal"</span>, <span class='st'>"vertical"</span>),
-  <span class='kw'>align</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"start"</span>, <span class='st'>"center"</span>, <span class='st'>"end"</span>)
+    <pre class="usage"><span class='fu'>metroCheck</span>(
+  <span class='no'>inputId</span>,
+  <span class='no'>label</span>,
+  <span class='kw'>value</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>disabled</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>style</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"1"</span>, <span class='st'>"2"</span>),
+  <span class='kw'>labelSide</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"left"</span>, <span class='st'>"right"</span>)
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>...</th>
-      <td><p>Slot for <a href='metroTab.html'>metroTab</a>.</p></td>
+      <th>inputId</th>
+      <td><p>Unique input id.</p></td>
     </tr>
     <tr>
-      <th>mode</th>
-      <td><p>Tab mode: NULL or "pills", "text" and "group".</p></td>
+      <th>label</th>
+      <td><p>Checkbox label.</p></td>
     </tr>
     <tr>
-      <th>position</th>
-      <td><p>Tab position: "horizontal" by default or "vertical".</p></td>
+      <th>value</th>
+      <td><p>Whether the checkbox is checked at start. Default to FALSE.</p></td>
     </tr>
     <tr>
-      <th>align</th>
-      <td><p>Tab align: "start", "center" or "end".</p></td>
+      <th>disabled</th>
+      <td><p>Whether the checkbox is disabled at start. Default to FALSE.</p></td>
+    </tr>
+    <tr>
+      <th>style</th>
+      <td><p>Checkbox style: either "1" (fill) or "3" (outline).</p></td>
+    </tr>
+    <tr>
+      <th>labelSide</th>
+      <td><p>Label side: "left" or "right".</p></td>
     </tr>
     </table>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()){
+    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
  <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shiny</span>)
  <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shinyMetroUi</span>)
 
  <span class='kw pkg'>shiny</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span>(
-   <span class='kw'>ui</span> <span class='kw'>=</span> <span class='fu'><a href='metroPage.html'>metroPage</a></span>(
-     <span class='fu'>metroTabs</span>(
-      <span class='kw'>mode</span> <span class='kw'>=</span> <span class='st'>"pills"</span>,
-      <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"horizontal"</span>,
-      <span class='fu'><a href='metroTab.html'>metroTab</a></span>(<span class='kw'>tabName</span> <span class='kw'>=</span> <span class='st'>"Tab 1"</span>, <span class='st'>"test 1"</span>),
-      <span class='fu'><a href='metroTab.html'>metroTab</a></span>(<span class='kw'>tabName</span> <span class='kw'>=</span> <span class='st'>"Tab 2"</span>, <span class='st'>"test 2"</span>),
-      <span class='fu'><a href='metroTab.html'>metroTab</a></span>(<span class='kw'>tabName</span> <span class='kw'>=</span> <span class='st'>"Tab 3"</span>, <span class='st'>"test 3"</span>)
-     )
+  <span class='kw'>ui</span> <span class='kw'>=</span> <span class='fu'><a href='metroPage.html'>metroPage</a></span>(
+    <span class='fu'>metroCheck</span>(
+     <span class='kw'>inputId</span> <span class='kw'>=</span> <span class='st'>"checkbox1"</span>,
+     <span class='kw'>label</span> <span class='kw'>=</span> <span class='st'>"Checkbox"</span>,
+     <span class='kw'>labelSide</span> <span class='kw'>=</span> <span class='st'>"right"</span>
    ),
-   <span class='kw'>server</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>) {}
+    <span class='fu'>metroCheck</span>(
+     <span class='kw'>inputId</span> <span class='kw'>=</span> <span class='st'>"checkbox2"</span>,
+     <span class='kw'>label</span> <span class='kw'>=</span> <span class='st'>"Checkbox checked"</span>,
+     <span class='kw'>value</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+     <span class='kw'>labelSide</span> <span class='kw'>=</span> <span class='st'>"right"</span>
+    ),
+    <span class='fu'>metroCheck</span>(
+     <span class='kw'>inputId</span> <span class='kw'>=</span> <span class='st'>"checkbox3"</span>,
+     <span class='kw'>label</span> <span class='kw'>=</span> <span class='st'>"Checkbox disabled"</span>,
+     <span class='kw'>disabled</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+     <span class='kw'>labelSide</span> <span class='kw'>=</span> <span class='st'>"right"</span>
+    ),
+    <span class='fu'>metroCheck</span>(
+     <span class='kw'>inputId</span> <span class='kw'>=</span> <span class='st'>"checkbox4"</span>,
+     <span class='kw'>label</span> <span class='kw'>=</span> <span class='st'>"Checkbox style 2"</span>,
+     <span class='kw'>style</span> <span class='kw'>=</span> <span class='st'>"2"</span>,
+     <span class='kw'>labelSide</span> <span class='kw'>=</span> <span class='st'>"left"</span>
+    ),
+  ),
+  <span class='kw'>server</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>) {}
  )
 }</div></pre>
   </div>
@@ -172,8 +198,6 @@
       <li><a href="#examples">Examples</a></li>
     </ul>
 
-    <h2>Author</h2>
-    <p>David Granjon, <a href='mailto:dgranjon@ymail.com'>dgranjon@ymail.com</a></p>
   </div>
 </div>
 

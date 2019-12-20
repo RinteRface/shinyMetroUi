@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create a Metro 4 tab container — metroTabs • shinyMetroUi</title>
+<title>Splitter — metroSplitter • shinyMetroUi</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="Create a Metro 4 tab container — metroTabs" />
-<meta property="og:description" content="Build a Metro tab container" />
+<meta property="og:title" content="Splitter — metroSplitter" />
+<meta property="og:description" content="Create a layout with panels that can be resized with splitter component" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -108,60 +108,86 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Create a Metro 4 tab container</h1>
-    <small class="dont-index">Source: <a href='https://github.com/RinteRface/shinyMetroUi/blob/master/R/metro-tabs.R'><code>R/metro-tabs.R</code></a></small>
-    <div class="hidden name"><code>metroTabs.Rd</code></div>
+    <h1>Splitter</h1>
+    <small class="dont-index">Source: <a href='https://github.com/RinteRface/shinyMetroUi/blob/master/R/metro-grids.R'><code>R/metro-grids.R</code></a></small>
+    <div class="hidden name"><code>metroSplitter.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Build a Metro tab container</p>
+    <p>Create a layout with panels that can be resized with splitter component</p>
     </div>
 
-    <pre class="usage"><span class='fu'>metroTabs</span>(
-  <span class='no'>...</span>,
-  <span class='kw'>mode</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>position</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"horizontal"</span>, <span class='st'>"vertical"</span>),
-  <span class='kw'>align</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"start"</span>, <span class='st'>"center"</span>, <span class='st'>"end"</span>)
-)</pre>
+    <pre class="usage"><span class='fu'>metroSplitter</span>(<span class='no'>panel1</span>, <span class='no'>panel2</span>, <span class='kw'>vertical</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>minSize</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>gutterSize</span> <span class='kw'>=</span> <span class='fl'>4</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>...</th>
-      <td><p>Slot for <a href='metroTab.html'>metroTab</a>.</p></td>
+      <th>panel1</th>
+      <td><p>Left panel. Wrap in <a href='https://rdrr.io/pkg/shiny/man/tag.html'>tagList</a>. This can be a nested metroSplitter.</p></td>
     </tr>
     <tr>
-      <th>mode</th>
-      <td><p>Tab mode: NULL or "pills", "text" and "group".</p></td>
+      <th>panel2</th>
+      <td><p>Right panel. Wrap in <a href='https://rdrr.io/pkg/shiny/man/tag.html'>tagList</a>. This can be a nested metroSplitter.</p></td>
     </tr>
     <tr>
-      <th>position</th>
-      <td><p>Tab position: "horizontal" by default or "vertical".</p></td>
+      <th>vertical</th>
+      <td><p>Vertical split. FALSE by default.</p></td>
     </tr>
     <tr>
-      <th>align</th>
-      <td><p>Tab align: "start", "center" or "end".</p></td>
+      <th>minSize</th>
+      <td><p>Minimum panel size. 100px by default.</p></td>
+    </tr>
+    <tr>
+      <th>gutterSize</th>
+      <td><p>Minimum gutter size (separator). 4 px by default.</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
+
+    <p>vertical does not work yet.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()){
+    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
  <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shiny</span>)
  <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shinyMetroUi</span>)
 
  <span class='kw pkg'>shiny</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span>(
-   <span class='kw'>ui</span> <span class='kw'>=</span> <span class='fu'><a href='metroPage.html'>metroPage</a></span>(
-     <span class='fu'>metroTabs</span>(
-      <span class='kw'>mode</span> <span class='kw'>=</span> <span class='st'>"pills"</span>,
-      <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"horizontal"</span>,
-      <span class='fu'><a href='metroTab.html'>metroTab</a></span>(<span class='kw'>tabName</span> <span class='kw'>=</span> <span class='st'>"Tab 1"</span>, <span class='st'>"test 1"</span>),
-      <span class='fu'><a href='metroTab.html'>metroTab</a></span>(<span class='kw'>tabName</span> <span class='kw'>=</span> <span class='st'>"Tab 2"</span>, <span class='st'>"test 2"</span>),
-      <span class='fu'><a href='metroTab.html'>metroTab</a></span>(<span class='kw'>tabName</span> <span class='kw'>=</span> <span class='st'>"Tab 3"</span>, <span class='st'>"test 3"</span>)
-     )
-   ),
-   <span class='kw'>server</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>) {}
+  <span class='kw'>ui</span> <span class='kw'>=</span> <span class='fu'><a href='metroPage.html'>metroPage</a></span>(
+    <span class='fu'>metroSplitter</span>(
+      <span class='kw'>vertical</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+      <span class='kw'>gutterSize</span> <span class='kw'>=</span> <span class='fl'>10</span>,
+      <span class='kw'>panel1</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/tag.html'>tagList</a></span>(
+        <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/sliderInput.html'>sliderInput</a></span>(
+          <span class='st'>"obs"</span>,
+          <span class='st'>"Number of observations:"</span>,
+          <span class='kw'>min</span> <span class='kw'>=</span> <span class='fl'>0</span>,
+          <span class='kw'>max</span> <span class='kw'>=</span> <span class='fl'>1000</span>,
+          <span class='kw'>value</span> <span class='kw'>=</span> <span class='fl'>500</span>
+        ),
+        <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/plotOutput.html'>plotOutput</a></span>(<span class='st'>"distPlot"</span>)
+      ),
+      <span class='kw'>panel2</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/tag.html'>tagList</a></span>(
+        <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/sliderInput.html'>sliderInput</a></span>(
+          <span class='st'>"obs2"</span>,
+          <span class='st'>"Number of observations:"</span>,
+          <span class='kw'>min</span> <span class='kw'>=</span> <span class='fl'>0</span>,
+          <span class='kw'>max</span> <span class='kw'>=</span> <span class='fl'>1000</span>,
+          <span class='kw'>value</span> <span class='kw'>=</span> <span class='fl'>500</span>
+        ),
+        <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/plotOutput.html'>plotOutput</a></span>(<span class='st'>"distPlot2"</span>)
+      )
+    )
+  ),
+  <span class='kw'>server</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>) {
+    <span class='no'>output</span>$<span class='no'>distPlot</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/renderPlot.html'>renderPlot</a></span>({
+      <span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='no'>input</span>$<span class='no'>obs</span>))
+    })
+    <span class='no'>output</span>$<span class='no'>distPlot2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/renderPlot.html'>renderPlot</a></span>({
+      <span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='no'>input</span>$<span class='no'>obs2</span>))
+    })
+  }
  )
 }</div></pre>
   </div>
@@ -169,11 +195,10 @@
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#note">Note</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 
-    <h2>Author</h2>
-    <p>David Granjon, <a href='mailto:dgranjon@ymail.com'>dgranjon@ymail.com</a></p>
   </div>
 </div>
 

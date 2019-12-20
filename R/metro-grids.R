@@ -101,7 +101,7 @@ metroRow <- function(..., xAlign = c("start", "center", "end"),
 #' @examples
 #' if (interactive()) {
 #'  library(shiny)
-#'  library(shinyMetroUI)
+#'  library(shinyMetroUi)
 #'
 #'  shiny::shinyApp(
 #'   ui = metroPage(
