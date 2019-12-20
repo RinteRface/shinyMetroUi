@@ -20,9 +20,49 @@ metroSplitter(panel1, panel2, vertical = FALSE, minSize = 100, gutterSize = 4)
 \description{
 Create a layout with panels that can be resized with splitter component
 }
+\note{
+vertical does not work yet.
+}
 \examples{
 if (interactive()) {
  library(shiny)
  library(shinyMetroUI)
+
+ shiny::shinyApp(
+  ui = metroPage(
+    metroSplitter(
+      vertical = FALSE,
+      gutterSize = 10,
+      panel1 = tagList(
+        sliderInput(
+          "obs",
+          "Number of observations:",
+          min = 0,
+          max = 1000,
+          value = 500
+        ),
+        plotOutput("distPlot")
+      ),
+      panel2 = tagList(
+        sliderInput(
+          "obs2",
+          "Number of observations:",
+          min = 0,
+          max = 1000,
+          value = 500
+        ),
+        plotOutput("distPlot2")
+      )
+    )
+  ),
+  server = function(input, output) {
+    output$distPlot <- renderPlot({
+      hist(rnorm(input$obs))
+    })
+    output$distPlot2 <- renderPlot({
+      hist(rnorm(input$obs2))
+    })
+  }
+ )
 }
 }
